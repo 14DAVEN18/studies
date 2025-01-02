@@ -1,0 +1,10 @@
+<div class="main">
+    <div class="side_menu">
+        <ul *ngFor="let category of categories">
+           {{ category.categoryName }}
+            <li *ngFor="let item of category.items">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</div>
