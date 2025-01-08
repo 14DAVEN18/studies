@@ -1,4 +1,10 @@
 export interface Category {
     categoryName: string,
-    items: string[]
+    items: Item[],
+    path: string
+}
+
+export interface Item {
+    name: string,
+    path: string
 }

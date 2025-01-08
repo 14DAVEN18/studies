@@ -6,7 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
-    children: []
+    children: [
+      {
+        path: 'operators',
+        loadChildren: () => import('@modules/operators/operators.module').then( o => o.OperatorsModule )
+      }
+    ]
   },
 ];
 

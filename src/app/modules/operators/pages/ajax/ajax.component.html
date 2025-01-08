@@ -1,0 +1,33 @@
+<div class="example">
+    <h2>Operador Ajax</h2>
+
+    <p class="info">
+        Crea un observable para una solicitud Ajax con un objeto de solicitud con url, encabezados, etc o un string para una URL.
+    </p>
+
+    <span class="exp-note">
+        <strong>Ejemplo: </strong> Se usa el operador <strong>ajax</strong> para hacer una petición HTTP de tipo GET a una url, cuando el servidor responde, el método devuelve la respuesta
+        envuelta en un <strong>observable</strong> y agrega un delay de 2000 ms, esto permite a la aplicación procesar la información de manera reactiva.
+    </span>
+
+    <div class="result_display">
+        <h3>Resultado del ejemplo</h3>
+
+        <div *ngIf="data; else noData">
+            <h4> {{ data?.title }} </h4>
+            <p> {{ data?.body }} </p>
+        </div>
+        <ng-template #noData>
+            <h4> Cargando... </h4>
+        </ng-template>
+    </div>
+
+    <span class="note">
+        <strong>Nota 1: </strong>Una <strong>solicitud AJAX</strong> (Asynchronous Javascript and XML) es una forma para que una aplicación web se comunique con un servidor en segundo
+        plano, sin recargar toda la página web. Esta técnica permite aplicaciones web dinámicas, rápidas y reponsivas mediante la actualización de partes de una página web asíncronamente. 
+    </span>
+
+    <span class="note">
+        <strong>Nota 2: </strong> AJAX envuelve la respuesta en un objeto <strong>response</strong>
+    </span>
+</div>

@@ -1,15 +1,8 @@
 <div class="main_page">
-    <div class="side_menu">
-      <div class="category_header" *ngFor="let category of categories">
-        <div class="header_item" (click)="toggleCategory(category.categoryName)">
-          {{ category.categoryName }}
-        </div>
-        <div class="item_container" [class.expanded]="expandedCategory === category.categoryName">
-          <div class="item" *ngFor="let item of category.items">
-            {{ item }}
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="side_menu">
+    <side-menu></side-menu>
   </div>
-  
+  <div class="content_container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

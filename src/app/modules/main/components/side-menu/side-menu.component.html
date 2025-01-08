@@ -1,1 +1,10 @@
-<p>side-menu works!</p>
+<div class="category_header" *ngFor="let category of categories">
+  <div class="header_item" (click)="toggleCategory(category.categoryName)">
+    {{ category.categoryName }}
+  </div>
+  <div class="item_container" [class.expanded]="expandedCategory === category.categoryName">
+    <div class="item" *ngFor="let item of category.items" [routerLink]="item.path" routerLinkActive="active">
+      {{ item.name }}
+    </div>
+  </div>
+</div>

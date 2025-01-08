@@ -1,0 +1,31 @@
+.category_header
+    background-color: rgb(255, 94, 59)
+    border-bottom: 1px solid black
+    display: flex
+    flex-direction: column
+    height: auto
+    min-height: 30px
+    width: 100%
+    .header_item
+        align-items: center
+        display: flex
+        justify-content: center
+        height: 30px
+        text-align: center
+        width: 100%
+    .item_container
+        background-color: rgb(236, 236, 236)
+        display: flex
+        flex-direction: column
+        overflow: hidden
+        max-height: 0 /* Initially hidden */
+        transition: max-height 0.3s ease
+        &.expanded
+            max-height: 500px /* Adjust based on expected content size */
+        .item
+            align-items: center
+            display: flex
+            height: 30px
+            min-height: 30px
+            padding: 0 20px
+            width: calc(100% - 40px)
