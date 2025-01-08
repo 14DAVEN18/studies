@@ -3,8 +3,8 @@
     {{ category.categoryName }}
   </div>
   <div class="item_container" [class.expanded]="expandedCategory === category.categoryName">
-    <div class="item" *ngFor="let item of category.items" [routerLink]="item.path" routerLinkActive="active">
-      {{ item.name }}
+    <div class="item" *ngFor="let item of category.items">
+      <a (click)="navigateTo(item)">{{ item.name }}</a>
     </div>
   </div>
 </div>

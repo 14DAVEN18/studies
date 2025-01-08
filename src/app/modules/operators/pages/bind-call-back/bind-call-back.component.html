@@ -1,8 +1,8 @@
 <div class="example">
-    <h2>Operador Ajax</h2>
+    <h2>Operador BindCallback</h2>
 
     <p class="info">
-        Crea un observable para una solicitud Ajax con un objeto de solicitud con url, encabezados, etc o un string para una URL.
+        Convierte una callback API a una función que retorna un observable.
     </p>
 
     <span class="exp-note">
@@ -11,11 +11,13 @@
     </span>
 
     <div class="result_display">
+        <p>Seleccione un archivo de texto plano (.txt, .csv, .log)</p>
+        <input type="file" (change)="onFileSelected($event)" />
         <h3>Resultado del ejemplo</h3>
 
-        <div *ngIf="data; else noData">
-            <h4> {{ data?.title }} </h4>
-            <p> {{ data?.body }} </p>
+        <div>
+            <h4> Contenido del archivo seleccionado </h4>
+            <p> {{ fileContent }} </p>
         </div>
         <ng-template #noData>
             <h4> Cargando... </h4>

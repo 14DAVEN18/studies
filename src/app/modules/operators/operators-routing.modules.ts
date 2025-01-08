@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: 'ajax',
         loadComponent: () => import('@modules/operators/pages/ajax/ajax.component').then( a => a.AjaxComponent )
+      },
+      {
+        path: 'bindCallback',
+        loadComponent: () => import('@modules/operators/pages/bind-call-back/bind-call-back.component').then( b => b.BindCallBackComponent)
       }
     ]
   },

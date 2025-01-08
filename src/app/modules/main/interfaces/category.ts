@@ -6,5 +6,6 @@ export interface Category {
 
 export interface Item {
     name: string,
-    path: string
+    path: string,
+    queryParams?: any
 }

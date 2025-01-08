@@ -10,6 +10,10 @@ const routes: Routes = [
       {
         path: 'operators',
         loadChildren: () => import('@modules/operators/operators.module').then( o => o.OperatorsModule )
+      },
+      {
+        path: 'definitions',
+        loadComponent: () => import('@modules/definitions/definitions.component').then( d => d.DefinitionsComponent)
       }
     ]
   },
