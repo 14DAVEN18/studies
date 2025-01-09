@@ -15,14 +15,19 @@ export class SideMenuComponent {
       categoryName: 'Operadores',
       items: [ 
         { name: 'Ajax',          path: '/operators/ajax' },
-        { name: 'Bind Callback', path: '/operators/bindCallback'}
+        { name: 'BindCallback', path: '/operators/bindCallback'},
+        { name: 'NodeBindCallback', path: 'operators/nodeBindCallback' }
       ],
       path: '/operators'
     },
     {
       categoryName: 'Definiciones',
       items: [
-        { name: 'Asíncrono', path: '/definitions', queryParams: { q: 'asynchronous' }}
+        { name: 'Petición AJAX', path: '/definitions', queryParams: { q: 'ajax request' } },
+        { name: 'API callback', path: '/definitions', queryParams: { q: 'callback api' } },
+        { name: 'Asíncrono', path: '/definitions', queryParams: { q: 'asynchronous' } },
+        { name: 'Observable', path: '/definitions', queryParams: { q: 'observable' } },
+        { name: 'Suscripción', path: '/definitions', queryParams: { q: 'subscription' } }
       ],
       path: '/definitions'
     }

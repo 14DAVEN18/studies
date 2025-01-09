@@ -2,12 +2,21 @@
     <h2>Operador BindCallback</h2>
 
     <p class="info">
-        Convierte una callback API a una función que retorna un observable.
+        Convierte la respuesta de una API basada en callbacks en un observable rxjs para manejar la respuesta de manera más flexible.
+    </p>
+    <p class="info">
+        Dele una función f de tipo <span class="snippet">f(x, callback)</span> y va a returnar una función g que cuando se llama como <span class="snippet">g(x)</span> tendrá como 
+        salida un observable.
+    </p>
+    <p class="info">
+        <strong>bindCalback</strong> no es un operador porque sus entradas y salidas no son observables. La entrada es una función <span class="snippet">func</span> con algunos 
+        parametros. El último parametro debe ser una función callback que <span class="snippet">func</span> llama cuando termina.
     </p>
 
     <span class="exp-note">
-        <strong>Ejemplo: </strong> Se usa el operador <strong>ajax</strong> para hacer una petición HTTP de tipo GET a una url, cuando el servidor responde, el método devuelve la respuesta
-        envuelta en un <strong>observable</strong> y agrega un delay de 2000 ms, esto permite a la aplicación procesar la información de manera reactiva.
+        <strong>Ejemplo: </strong> Se usa <strong>bindCallback</strong> para crear un observable de la respuesta de un file reader que devuelve el contenido del archivo de texto plano 
+        o un error (en caso de que haya alguno). Se suscribe al observable resultante por medio del cual se asigna el contenido del texto a una variable que es mostrada en el documento
+        html.
     </span>
 
     <div class="result_display">
@@ -25,11 +34,6 @@
     </div>
 
     <span class="note">
-        <strong>Nota 1: </strong>Una <strong>solicitud AJAX</strong> (Asynchronous Javascript and XML) es una forma para que una aplicación web se comunique con un servidor en segundo
-        plano, sin recargar toda la página web. Esta técnica permite aplicaciones web dinámicas, rápidas y reponsivas mediante la actualización de partes de una página web asíncronamente. 
-    </span>
-
-    <span class="note">
-        <strong>Clave 1: </strong> AJAX envuelve la respuesta en un objeto <strong>response</strong>
+        <strong>Clave 1: </strong> <strong>bindCallback</strong> se usa para APIs o funciones que dependan de una función callback.
     </span>
 </div>

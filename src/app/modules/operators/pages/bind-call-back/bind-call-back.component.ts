@@ -20,12 +20,18 @@ export class BindCallBackComponent {
       const file = input.files[0];
 
       // Se envuelve el método readAsText de FileReader con un bindCallback
-      const readFileAsText = bindCallback((file: Blob, callback: (result: string) => void) => {
-        const reader = new FileReader();
-        reader.onload = () => callback(reader.result as string);
-        reader.onerror = () => callback('Error reading file.');
-        reader.readAsText(file);
-      });
+      const readFileAsText = bindCallback(
+        ( 
+          file: Blob,
+          callback: (result: string) => void
+        ) => 
+          {
+            const reader = new FileReader();
+            reader.onload = () => callback(reader.result as string);
+            reader.onerror = () => callback('Error reading file.');
+            reader.readAsText(file);
+          }
+        );
 
       // Llama la función y se suscribe al resultado
       readFileAsText(file).subscribe({

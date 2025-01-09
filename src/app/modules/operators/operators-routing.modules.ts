@@ -13,7 +13,11 @@ const routes: Routes = [
       },
       {
         path: 'bindCallback',
-        loadComponent: () => import('@modules/operators/pages/bind-call-back/bind-call-back.component').then( b => b.BindCallBackComponent)
+        loadComponent: () => import('@modules/operators/pages/bind-call-back/bind-call-back.component').then( b => b.BindCallBackComponent )
+      },
+      {
+        path: 'nodeBindCallback',
+        loadComponent: () => import('@modules/operators/pages/node-bind-callback/node-bind-callback.component').then( n => n.NodeBindCallbackComponent )
       }
     ]
   },

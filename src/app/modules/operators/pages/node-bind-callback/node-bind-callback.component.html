@@ -1,0 +1,41 @@
+<div class="example">
+    <h2>Operador nodeBindCallback</h2>
+
+    <p class="info">
+        Convierte la respuesta de una API Callback de tipo Node.js en un observable rxjs para manejar la respuesta de manera más flexible.
+    </p>
+    <p class="info">
+        Es tal como un <strong>bindCallback</strong> pero se espera que el callback sea de tipo <span class="snippet">callback(error, result)</span>.
+    </p>
+    <p class="info">
+        <strong>bindCalback</strong> no es un operador porque sus entradas y salidas no son observables. La entrada es una función <span class="snippet">func</span> con algunos 
+        parametros pero el último parametro debe ser una función callback que <span class="snippet">func</span> llama cuando termina. Se espera que la función callback siga las
+        convenciones <strong>Node.js</strong>, en donde el primer argumento del callback es un objeto <span class="snippet">error</span> que señala si la llamada fue exitosa. Si el
+        objeto es pasado al callback, esto significa que algo salió mal.
+    </p>
+
+    <span class="exp-note">
+        <strong>Ejemplo: </strong> Se usa el operador <strong>ajax</strong> para hacer una petición HTTP de tipo GET a una url, cuando el servidor responde, el método devuelve la respuesta
+        envuelta en un <strong>observable</strong> y agrega un delay de 2000 ms, esto permite a la aplicación procesar la información de manera reactiva.
+    </span>
+
+    <div class="result_display">
+        <button (click)="fetchResult('success')">Fetch Success</button>
+        <button (click)="fetchResult('error')">Fetch Error</button>
+        <h3>Resultado del ejemplo</h3>
+           
+        <div *ngIf="result || error; else noData">
+            {{ result }}
+        </div>
+        <div *ngIf="error" style="color: red;">
+            {{ error }}
+        </div>
+        <ng-template #noData>
+            <h4> Presione un botón para continuar... </h4>
+        </ng-template>
+    </div>
+
+    <span class="note">
+        <strong>Clave 1: </strong> AJAX envuelve la respuesta en un objeto <strong>response</strong>
+    </span>
+</div>
