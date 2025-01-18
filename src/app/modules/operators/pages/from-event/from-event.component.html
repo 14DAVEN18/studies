@@ -1,0 +1,76 @@
+<div class="example">
+    <h2>Operador fromEvent</h2>
+
+    <!-- Descripción general del operador -->
+    <p class="info">
+        Crea un Observable que emite eventos de un tipo específico que viene del evento objetivo dado.
+    </p>
+
+    <p class="info">
+        <span class="snippet">fromEvent</span> acepta un primer argumento objetivo de evento, el cual es un objeto con métodos para registrar funciones manejadoras de eventos. Como
+        segundo parámetro toma un string que indica el tipo de evento que queremos escuchar. <span class="snippet">fromEvent</span> soporta tipos selectos de objetivos de evento. <br>
+        Cada vez que el Observable resultante es suscrito, la función que maneja eventos será registrada al objetivo del evento en el tipo de evento dado. Cuando el evento se dispara,
+        el valor pasado como primer argumento a la función registrada será emitido por el Observable de salida. Cuando el observable es desuscrito, la función será desuscrita del 
+        objetivo del evento.
+    </p>
+
+    <!-- Parametros -->
+    <h2>Parametros</h2>
+
+    <p class="info">
+        <span class="snippet">target: any</span> El objetivo del objetivo DOM, Node.js EventEmitter, objetivo de event de tipo JQuery, NodeList colección HTML a la que unir el manejador
+        de eventos.
+    </p>
+
+    <p class="info">
+        <span class="snippet">eventName: string</span>  El nombre del evento de interes, siendo emitido por el <span class="snippet">target</span>
+    </p>
+
+    <p class="info">
+        <span class="snippet">options: EventListenerOptions | ((...args: any[]) => T)</span>  Opcional. Por defecto es indefinido. <br>Opciones para pasar al <span class="snippet">
+            AddListener</span>, <span class="snippet">addEventListener</span> o funciones <span class="snippet">on</span> adyacentes.
+    </p>
+
+    <p class="info">
+        <span class="snippet">resultSelector: (...args: any[]) => T</span>  Opcional. Por defecto es indefinido. <br>Una función de mapeo usada para transformar eventos. Toma los 
+        argumentos del manejador de evento y debería retornar un solo valor.
+    </p>
+
+    <!-- Retorna -->
+     <p class="info">
+        <span class="snippet">{{'Observable\<T>'}}</span>: Un Observable emitiendo eventos registrados a través de los manejadores del listener del <span class="snippet">target</span>
+     </p>
+
+    <!-- Tipos soportados por fromEvent -->
+    <h2>Tipos soportados de manejadores de eventos</h2>
+    <h3>DOM EventTarget</h3>
+    <p class="info">
+        Este es un objeto con los métodos <span class="snippet">addEventListener</span> y <span class="snippet">removeEventListener</span><br>
+        En el navegador, <span class="snippet">addEventListener</span> acepta - aparte del string de tipo de evento y los argumentos de la función manejadora de eventos - un tercer 
+        parametro opcional, el cual es un objeto o un booleano, ambos son usados para configuraciones adicionales sobre como y cuando la función pasada será llamada. Cuando 
+        <span class="snippet">fromEvent</span> es usado con el objetivo de evento de ese tipo, se puede proveer estos valores también como tercer parametro
+    </p>
+
+    <h3>Node.js EventEmitter</h3>
+
+    <!-- Descripción del ejemplo -->
+    <span class="exp-note">
+        <strong>Ejemplo: </strong> Se usa el operador <strong>from</strong> para crear una Observable a partir de un arreglo de números
+    </span>
+
+    <!-- Muestra del resultado -->
+    <div class="result_display">
+        <h3>Resultado del ejemplo</h3>
+           
+        
+
+        <span *ngFor="let character of emittedStringValues">{{ character }}</span>
+    </div>
+
+    <!-- Notas -->
+    <span class="note">
+        <strong>Clave 1: </strong> Notese que si el objetivo del evento llama la función registrada con más de un argumento, el segundo y los próximos argumentos no aparecerán en el 
+        flujo de resultados. Para acceder a ellos, se puede pasar a <span class="snippet">fromEvent</span> una functión de proyecto opcional, la cual será llamada con todos los 
+        argumentos pasados al manejador de eventos. El Observable de salida emitirá entonces el valor retornado por la función de proyecto.
+    </span>
+</div>

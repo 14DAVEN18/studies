@@ -17,7 +17,7 @@ export class NodeBindCallbackService {
     }, 1000);
   }
 
-  // Usa bindCallback para convertir la función en un Observable
+  // Usa bindNodeCallback para convertir la función en un Observable
   getObservable(param: string) {
     const observableFactory = bindNodeCallback(this.mockCallbackFunction.bind(this));
     return observableFactory(param);

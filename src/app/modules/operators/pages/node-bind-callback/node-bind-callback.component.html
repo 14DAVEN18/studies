@@ -8,15 +8,15 @@
         Es tal como un <strong>bindCallback</strong> pero se espera que el callback sea de tipo <span class="snippet">callback(error, result)</span>.
     </p>
     <p class="info">
-        <strong>bindCalback</strong> no es un operador porque sus entradas y salidas no son observables. La entrada es una función <span class="snippet">func</span> con algunos 
+        <strong>nodeBindCallback</strong> no es un operador porque sus entradas y salidas no son observables. La entrada es una función <span class="snippet">func</span> con algunos 
         parametros pero el último parametro debe ser una función callback que <span class="snippet">func</span> llama cuando termina. Se espera que la función callback siga las
         convenciones <strong>Node.js</strong>, en donde el primer argumento del callback es un objeto <span class="snippet">error</span> que señala si la llamada fue exitosa. Si el
         objeto es pasado al callback, esto significa que algo salió mal.
     </p>
 
     <span class="exp-note">
-        <strong>Ejemplo: </strong> Se usa el operador <strong>ajax</strong> para hacer una petición HTTP de tipo GET a una url, cuando el servidor responde, el método devuelve la respuesta
-        envuelta en un <strong>observable</strong> y agrega un delay de 2000 ms, esto permite a la aplicación procesar la información de manera reactiva.
+        <strong>Ejemplo: </strong> Se usa la función <strong>nodeBindCallback</strong> para crear una función que retorna un observable que emite el resultado de una función callback
+        que sigue la converción Nde.js. se maneja tanto el exito como el error de la solicitud y se muestra el contenido del resultado.
     </span>
 
     <div class="result_display">
@@ -36,6 +36,7 @@
     </div>
 
     <span class="note">
-        <strong>Clave 1: </strong> AJAX envuelve la respuesta en un objeto <strong>response</strong>
+        <strong>Clave 1: </strong> <strong>nodeBindCallback</strong> siempre funciona con funciones o APIs de convención Node.js, es decir, la función callback tiene 2 parámetros:
+        error y respuesta.
     </span>
 </div>

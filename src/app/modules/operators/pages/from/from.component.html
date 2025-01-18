@@ -1,0 +1,28 @@
+<div class="example">
+    <h2>Operador from</h2>
+
+    <p class="info">
+        Crea un observable a partir de un arreglo, un objeto de tipo arreglo, una promesa, un objeto iterable, o un objeto de tipo observador.
+    </p>
+    <p class="info">
+        <span class="snippet">from</span> convierte varios otros objetos y tipos de datos en observables. También convierte una promesa, un tipo arreglo o un objeto iterable en un
+        observable que emite los elementos en esa promesa, arreglo o iterable. Un string, en este contexto, es tratado como un arreglo de caracteres. Los objetos de tipo observable
+        (contiene una función nombrada con el Símbolo ES2015 para observables) también pueden ser convertidos por medio de este operador.
+    </p>
+
+    <span class="exp-note">
+        <strong>Ejemplo: </strong> Se usa el operador <strong>from</strong> para crear una observable a partir de un arreglo de números
+    </span>
+
+    <div class="result_display">
+        <h3>Resultado del ejemplo</h3>
+           
+        {{ this.emittedValues | json }}
+
+        <span *ngFor="let character of emittedStringValues">{{ character }}</span>
+    </div>
+
+    <span class="note">
+        <strong>Clave 1: </strong> <strong>from</strong> los string se tratan como arreglos de caracteres.
+    </span>
+</div>

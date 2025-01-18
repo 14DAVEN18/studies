@@ -18,6 +18,18 @@ const routes: Routes = [
       {
         path: 'nodeBindCallback',
         loadComponent: () => import('@modules/operators/pages/node-bind-callback/node-bind-callback.component').then( n => n.NodeBindCallbackComponent )
+      },
+      {
+        path: 'defer',
+        loadComponent: () => import('@modules/operators/pages/defer/defer.component').then( d => d.DeferComponent )
+      },
+      {
+        path: 'from',
+        loadComponent: () => import('@modules/operators/pages/from/from.component').then( f => f.FromComponent )
+      },
+      {
+        path: 'fromEvent',
+        loadComponent: () => import('@modules/operators/pages/from-event/from-event.component').then( f => f.FromEventComponent )
       }
     ]
   },

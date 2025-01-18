@@ -16,7 +16,10 @@ export class SideMenuComponent {
       items: [ 
         { name: 'Ajax',          path: '/operators/ajax' },
         { name: 'BindCallback', path: '/operators/bindCallback'},
-        { name: 'NodeBindCallback', path: 'operators/nodeBindCallback' }
+        { name: 'NodeBindCallback', path: '/operators/nodeBindCallback' },
+        { name: 'Defer', path: '/operators/defer' },
+        { name: 'From', path: '/operators/from' },
+        { name: 'FromEvent', path: '/operators/fromEvent' }
       ],
       path: '/operators'
     },

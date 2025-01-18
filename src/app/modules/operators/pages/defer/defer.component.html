@@ -1,0 +1,30 @@
+<div class="example">
+    <h2>Operador defer</h2>
+
+    <p class="info">
+        Crea un observable que, al suscribirse, llama a una fabrica de observables que que crean un observable para cada nuevo observador.
+    </p>
+    <p class="info">
+        <span class="snippet">defer</span> permite crear un <span class="snippet">Observable</span> solamente cuando el <span class="snippet">Observador</span> se suscribe. Espera a que
+        el observador se suscriba para hacerlo, llama la función de fabrica dada para obtener un observable - en dónde una función de fabrica típicamente genera un nuevo observable - y
+        suscribe al observador a este observable.  En caso de que la función de fabrica retorne un valor falso, entonces EMPTY es usado como observable en su lugar. Por último pero no
+        menos importante, una excepción durante la llamada a la función de fabrica es transferida al observador llamando <span class="snippet">error</span>.
+    </p>
+
+    <span class="exp-note">
+        <strong>Ejemplo: </strong> Se usa el operador <strong>defer</strong> para crear una promesa que se resuelve y retorna la fecha y hora actuales
+    </span>
+
+    <div class="result_display">
+        <button (click)="subscribeToCurrentTime()">Suscribirse ahora</button>
+        <button (click)="subscribeToCurrentTimeLater()">Suscribirse luego</button>
+        <h3>Resultado del ejemplo</h3>
+           
+        {{ this.message }}
+    </div>
+
+    <span class="note">
+        <strong>Clave 1: </strong> <strong>defer</strong> crea un observable que se define peresozamente, esto significa que la lógica de la función de fabrica solo es ejecutada
+        cuando un observador se suscribe al observable, this asegura que el observador pueda generar datos frescos o ejecutar código en el momento exacto en el que se suscriben
+    </span>
+</div>
