@@ -43,7 +43,7 @@
 
     <!-- Tipos soportados por fromEvent -->
     <h2>Tipos soportados de manejadores de eventos</h2>
-    <h3>DOM EventTarget</h3>
+    <h4>DOM EventTarget</h4>
     <p class="info">
         Este es un objeto con los métodos <span class="snippet">addEventListener</span> y <span class="snippet">removeEventListener</span><br>
         En el navegador, <span class="snippet">addEventListener</span> acepta - aparte del string de tipo de evento y los argumentos de la función manejadora de eventos - un tercer 
@@ -51,20 +51,47 @@
         <span class="snippet">fromEvent</span> es usado con el objetivo de evento de ese tipo, se puede proveer estos valores también como tercer parametro
     </p>
 
-    <h3>Node.js EventEmitter</h3>
+    <h4>Node.js EventEmitter</h4>
+    <p class="info">
+        Un objeto con <span class="snippet">addListener</span> and <span class="snippet">removeListenerz</span> methods.
+    </p>
+
+    <h4>Objetivo de evento de tipo JQuery</h4>
+    <p class="info">
+        Lista de nodos DOM, retornados por ejemplo por <span class="snippet">document.querySelectorAll</span> or <span class="info">Node.childNodes</span>. Aunque está colección no es 
+        un objetivo de evento en si mismo, <span class="snippet">fromEvent</span> va a iterar sobre todos los nodos que contiene e instalará una función manejadora de eventos en cada 
+        uno de ellos. Cuando el Observable retornado es desuscrito, la función será removida de todos los nodos.
+    </p>
+
+    <h4>HtmlColleciton de DOM</h4>
+    <p class="info">
+        Justo como en el caso de NodeList, es una colección de nodos DOM. Aqui también una función manejadora de eventos es instalada y removida en cada uno de los elementos.
+    </p>
 
     <!-- Descripción del ejemplo -->
     <span class="exp-note">
-        <strong>Ejemplo: </strong> Se usa el operador <strong>from</strong> para crear una Observable a partir de un arreglo de números
+        <strong>Ejemplo: </strong> Se usa el operador <strong>fromEvent</strong> para mostrar las coordenadas de clic del usuario. También se usa el parametro <span class="snippet">
+            options</span> del operador para enviar el atributo <span class="snippet">passive</span> con valor <span class="snippet">true</span> para que el navegador optimice el 
+            scroll en un div.
     </span>
 
     <!-- Muestra del resultado -->
     <div class="result_display">
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <h2>Scroll hacia abajo para ver el efecto!</h2>
+                <p *ngFor="let i of items">{{ i }}</p>
+            </div>
+        </div>
         <h3>Resultado del ejemplo</h3>
            
-        
-
-        <span *ngFor="let character of emittedStringValues">{{ character }}</span>
+        <span *ngIf="result || scrollResult; else noData">
+            {{ result }}<br>
+            {{ scrollResult }}
+        </span>
+        <ng-template #noData>
+            No ha hecho clic
+        </ng-template>
     </div>
 
     <!-- Notas -->
